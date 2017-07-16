@@ -2,9 +2,6 @@
 // planets.js - Planet stuff
 
 var FREQ_FACTOR = 0.7;						// Multiply planet frequency by this factor
-// ----- Deprecated
-// var TOLERANCE = FREQ_FACTOR;				// Delta(theta) tolerance for checking conjunction
-// ----- End deprecated
 
 class Planet {
 	constructor(show, theta, period, size, distance, color, buffer) {
@@ -17,14 +14,6 @@ class Planet {
 		this.color = color;					// colour of the planet
 		this.showTransit = false;			// show the transit or not (boolean)
 		this.buffer = buffer;				// sound of the planet (audio buffer)
-
-		// ----- Deprecated
-		// the following attributes are for checking conjunction with next planet
-		// this.checkForConj = true;			// check for conjunction with next planet (boolean)
-		// this.showConj = false;				// show conjunctions or not (boolean)
-		// this.thetaRatio = 0;				// ratio of angles with next planet
-		// this.conjBuffer = conjBuffer;		// sound to play at conjunction (audio buffer)
-		// ----- End deprecated
 	}
 }
 

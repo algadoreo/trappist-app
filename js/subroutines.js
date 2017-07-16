@@ -17,9 +17,6 @@ function updatePlanet(planet) {
 			playSound(planet.buffer);
 			drawPlanetBlip(planet);
 		}
-		// ----- Deprecated
-		// planet.checkForConj = true;
-		// ----- End deprecated
 	}
 	if (planet.show) drawPlanet(planet);
 }
@@ -48,30 +45,10 @@ function drawOrbitTrail(r, color, theta) {
 	drawContext.stroke();
 }
 
-// ----- Deprecated
-// function checkConjunction(planet1, planet2) {
-// 	if (planet1.show && planet2.show && planet1.checkForConj && planet1.showConj) {
-// 		var ratio = Math.abs(planet1.theta - planet2.theta);
-// 		if (ratio <= TOLERANCE && ratio >= planet1.thetaRatio) {
-// 			playSound(planet1.conjBuffer);
-// 			drawConjunction(planet2);
-// 			planet1.checkForConj = false;
-// 			// N.B.: the planets cannot be in conjunction again until after both have passed the
-// 			// theta = 0 line, so we reset planet.checkForConj = true once that happens in 
-// 			// updatePlanet().
-// 		}
-// 		planet1.thetaRatio = ratio;
-// 	}
-// }
-// ----- End deprecated
-
 function checkConjunction(planet1, planet2, conj_obj) {
 	conj_obj.dtheta -= conj_obj.dfreq;
 	if (conj_obj.dtheta <= 0) {
 		conj_obj.dtheta += 2*Math.PI;
-		// ----- Deprecated
-		// if (planet1.show && planet2.show && planet1.showConj) {
-		// ----- End deprecated
 		if (conj_obj.showConj) {
 			playSound(conj_obj.conjBuffer);
 			drawConjunction(planet2);
@@ -86,24 +63,6 @@ function drawConjunction(planet) {
 	drawContext.fillRect(0, 0, planet.distance+10, 5);
 	drawContext.restore();
 }
-
-// ----- Deprecated
-// function togglePlanet(planet, button_id) {
-// 	planet.show = !planet.show;
-
-// 	var button = document.getElementById(button_id);
-// 	button.classList.toggle("activated");
-// 	button.classList.toggle("deactivated");
-// }
-
-// function toggleConjunc(planet, button_id) {
-// 	planet.showConj = !planet.showConj;
-
-// 	var button = document.getElementById(button_id);
-// 	button.classList.toggle("activated");
-// 	button.classList.toggle("deactivated");
-// }
-// ----- End deprecated
 
 function toggleTransit(planet, conj_obj1, conj_obj2, button_id) {
 	planet.showTransit = !planet.showTransit;

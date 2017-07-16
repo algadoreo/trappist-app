@@ -74,11 +74,6 @@ function draw() {
 	drawContext.drawImage(starImg, -STAR_WIDTH/2, -STAR_HEIGHT/2, STAR_WIDTH, STAR_HEIGHT);
 	drawContext.restore();
 
-	// N.B.: Draw planets from outer ones inward because we check for conjunction by
-	// looking at whether the inner planet has overtaken the outer planet, so it makes
-	// sense to update/draw the outer planet first.
-	// ----- ^ this should now be deprecated
-
 	// Draw planet h
 	if (!h.buffer) h.buffer = h_BUFFER;
 	updatePlanet(h);
