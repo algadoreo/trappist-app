@@ -36,6 +36,7 @@ function drawPlanetBlip(planet) {
 function drawOrbitTrail(r, color, theta) {
 	drawContext.beginPath();
 	drawContext.arc(0, 0, r, -theta, -theta + Math.PI/3);
+	drawContext.lineWidth = 2;
 	drawContext.strokeStyle = color;
 	drawContext.stroke();
 }
@@ -46,7 +47,7 @@ function checkConjunction(planet1, planet2, conj_obj) {
 		conj_obj.dtheta += 2*Math.PI;
 		if (conj_obj.showConj) {
 			playSound(conj_obj.conjBuffer);
-			drawConjunction(planet2);
+			drawConjunction(planet1);
 		}
 	}
 }
@@ -55,7 +56,7 @@ function drawConjunction(planet) {
 	drawContext.save();
 	drawContext.fillStyle = planet.color;
 	drawContext.rotate(-planet.theta);
-	drawContext.fillRect(0, 0, planet.distance+10, 5);
+	drawContext.fillRect(0, 0, 350, 5);
 	drawContext.restore();
 }
 
