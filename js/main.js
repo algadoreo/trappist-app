@@ -50,23 +50,6 @@ function draw() {
 	drawContext.drawImage(bgImg, -WIDTH/2, -HEIGHT/2, WIDTH, HEIGHT);
 	drawContext.globalAlpha = 1;
 
-	// ----- Deprecated
-	// // Paint background
-	// drawContext.fillStyle = 'rgba(0,0,0,0.1)';
-	// drawContext.fillRect(-WIDTH/2, -HEIGHT/2, WIDTH, HEIGHT);
-	// // Clear background
-	// drawContext.clearRect(-WIDTH/2, -HEIGHT/2, WIDTH, HEIGHT);
-
-	// // Draw Sun
-	// drawContext.save()
-	// drawContext.shadowColor = 'rgba(255,136,77,1)';
-	// drawContext.fillStyle = 'DarkOrange';
-	// drawContext.shadowBlur = 40;
-	// drawContext.lineWidth = 0.5;
-	// makeCircle(0, 0, 30, 'DarkOrange');
-	// drawContext.restore();
-	// ----- End deprecated
-
 	// Draw star
 	drawContext.save();
 	star.theta += star.freq;

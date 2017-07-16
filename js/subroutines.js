@@ -34,13 +34,8 @@ function drawPlanetBlip(planet) {
 }
 
 function drawOrbitTrail(r, color, theta) {
-	// var gradient = drawContext.createLinearGradient(0, 0, r*Math.sin(theta), r*Math.cos(theta));
-	// gradient.addColorStop(0, color);
-	// gradient.addColorStop(1, 'white');
-
 	drawContext.beginPath();
 	drawContext.arc(0, 0, r, -theta, -theta + Math.PI/3);
-	// drawContext.strokeStyle = gradient;
 	drawContext.strokeStyle = color;
 	drawContext.stroke();
 }
