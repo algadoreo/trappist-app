@@ -1,25 +1,6 @@
 //////////////////////////////////////////////////
 // audio.js - Web audio stuff
 
-// ----- Deprecated
-// window.AudioContext = window.AudioContext || window.webkitAudioContext;
-// var audioContext = new AudioContext();
-
-// function loadSound(url, planetBuffer) {
-// 	var request = new XMLHttpRequest();
-// 	request.open('GET', url, true);
-// 	request.responseType = 'arraybuffer';
-
-// 	// Decode asynchronously
-// 	request.onload = function() {
-// 		audioContext.decodeAudioData(request.response, function(buffer) {
-// 			planetBuffer = buffer;
-// 		}, onError);
-// 	}
-// 	request.send();
-// }
-// ----- End deprecated
-
 // ----- buffer-loader.js
 function BufferLoader(context, urlList, callback) {
   this.context = context;
@@ -69,7 +50,8 @@ BufferLoader.prototype.load = function() {
 }
 // ----- end buffer-loader.js
 
-//window.onload = init;
+//////////////////////////////////////////////////
+// Main section
 var audioContext;
 var masterGain;
 var analyser;
@@ -91,55 +73,55 @@ var efConj_BUFFER = null;
 var fgConj_BUFFER = null;
 var ghConj_BUFFER = null;
 
-//function init() {
-	window.AudioContext = window.AudioContext || window.webkitAudioContext;
-	audioContext = new AudioContext();
+// Create audio context and load sounds
+window.AudioContext = window.AudioContext || window.webkitAudioContext;
+audioContext = new AudioContext();
 
-	analyser = audioContext.createAnalyser();
-	analyser.fftSize = 1024;
-	time_arr = new Uint8Array(analyser.frequencyBinCount);
+analyser = audioContext.createAnalyser();
+analyser.fftSize = 1024;
+time_arr = new Uint8Array(analyser.frequencyBinCount);
 
-	masterGain = audioContext.createGain();
-	masterGain.gain.value = 0.2;
-	masterGain.connect(audioContext.destination);
-	masterGain.connect(analyser);
+masterGain = audioContext.createGain();
+masterGain.gain.value = 0.2;
+masterGain.connect(audioContext.destination);
+masterGain.connect(analyser);
 
-	bufferLoader = new BufferLoader(
-		audioContext,
-		[
-			'./sounds/TRAPPIST7.mp3',
-			'./sounds/TRAPPIST6.mp3',
-			'./sounds/TRAPPIST5.mp3',
-			'./sounds/TRAPPIST4.mp3',
-			'./sounds/TRAPPIST3.mp3',
-			'./sounds/TRAPPIST2.mp3',
-			'./sounds/TRAPPIST1.mp3',
-			'./sounds/TRAPPISTstar.mp3',
-			'./sounds/TRAPPISTdrums12.mp3',
-			'./sounds/TRAPPISTdrums23.mp3',
-			'./sounds/TRAPPISTdrums34.mp3',
-			'./sounds/TRAPPISTdrums45.mp3',
-			'./sounds/TRAPPISTdrums56.mp3',
-			'./sounds/TRAPPISTdrums67.mp3',
-		],
-		function(bufferList) {
-			h_BUFFER = bufferList[0];
-			g_BUFFER = bufferList[1];
-			f_BUFFER = bufferList[2];
-			e_BUFFER = bufferList[3];
-			d_BUFFER = bufferList[4];
-			c_BUFFER = bufferList[5];
-			b_BUFFER = bufferList[6];
-			star_BUFFER = bufferList[7];
-			bcConj_BUFFER = bufferList[8];
-			cdConj_BUFFER = bufferList[9];
-			deConj_BUFFER = bufferList[10];
-			efConj_BUFFER = bufferList[11];
-			fgConj_BUFFER = bufferList[12];
-			ghConj_BUFFER = bufferList[13];
-		});
-	bufferLoader.load();
-//}
+bufferLoader = new BufferLoader(
+	audioContext,
+	[
+		'./sounds/TRAPPIST7.mp3',
+		'./sounds/TRAPPIST6.mp3',
+		'./sounds/TRAPPIST5.mp3',
+		'./sounds/TRAPPIST4.mp3',
+		'./sounds/TRAPPIST3.mp3',
+		'./sounds/TRAPPIST2.mp3',
+		'./sounds/TRAPPIST1.mp3',
+		'./sounds/TRAPPISTstar.mp3',
+		'./sounds/TRAPPISTdrums12.mp3',
+		'./sounds/TRAPPISTdrums23.mp3',
+		'./sounds/TRAPPISTdrums34.mp3',
+		'./sounds/TRAPPISTdrums45.mp3',
+		'./sounds/TRAPPISTdrums56.mp3',
+		'./sounds/TRAPPISTdrums67.mp3',
+	],
+	function(bufferList) {
+		h_BUFFER = bufferList[0];
+		g_BUFFER = bufferList[1];
+		f_BUFFER = bufferList[2];
+		e_BUFFER = bufferList[3];
+		d_BUFFER = bufferList[4];
+		c_BUFFER = bufferList[5];
+		b_BUFFER = bufferList[6];
+		star_BUFFER = bufferList[7];
+		bcConj_BUFFER = bufferList[8];
+		cdConj_BUFFER = bufferList[9];
+		deConj_BUFFER = bufferList[10];
+		efConj_BUFFER = bufferList[11];
+		fgConj_BUFFER = bufferList[12];
+		ghConj_BUFFER = bufferList[13];
+	});
+bufferLoader.load();
+
 
 function playSound(buffer) {
 	var source = audioContext.createBufferSource();
