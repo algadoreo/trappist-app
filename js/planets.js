@@ -1,14 +1,15 @@
 //////////////////////////////////////////////////
 // planets.js - Planet stuff
 
-var FREQ_FACTOR = 0.7;						// Multiply planet frequency by this factor
+const BASE_BPM = 30;						// Use 30 bpm as the basic unit
+const BPM_FACTOR = 0.983;					// Conversion of onscreen units to units of 30 bpm
 
 class Planet {
 	constructor(show, theta, period, size, distance, color, buffer) {
 		this.show = show;					// display planet or not (boolean)
 		this.theta = theta;					// initial angle (radians)
 		this.period = period;				// period of orbit (cycles/radian)
-		this.freq = FREQ_FACTOR/period;		// frequency of orbit (radians/cycle)
+		this.freq = BPM_FACTOR/period;		// frequency of orbit (radians/cycle)
 		this.size = size;					// size of planet (pixels)
 		this.distance = distance;			// size of orbit (pixels)
 		this.color = color;					// colour of the planet
@@ -35,12 +36,12 @@ var conj_fg = {dtheta: 2*Math.PI - (f.theta - g.theta), dfreq: f.freq - g.freq, 
 var conj_gh = {dtheta: 2*Math.PI - (g.theta - h.theta), dfreq: g.freq - h.freq, showConj: false, conjBuffer: ghConj_BUFFER};
 
 // Create the star
-var star = {theta: 0, period: 3.3, freq: FREQ_FACTOR/3.3};
+var star = {theta: 0, period: 3.3, freq: BPM_FACTOR/3.3};
 
 // Update the orbital speeds
-function updateSpeed(planet_arr, FREQ_FACTOR) {
+function updateSpeed(planet_arr, bpm) {
 	planet_arr.forEach(function(planet) {
-		planet.freq = FREQ_FACTOR/planet.period;
+		planet.freq = (bpm/BASE_BPM*BPM_FACTOR)/planet.period;
 	});
 
 	conj_bc.dfreq = b.freq - c.freq;
