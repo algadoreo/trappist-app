@@ -13,48 +13,93 @@ input[type="range"] {
 	background-color: #333333;
 	height: 2px;
 }
-input[type="button"] {
-	color: white;
-	border-style: solid;
-	border-color: #333333;
-	border-radius: 10px;
-	background-color: black;
-	transition-duration: 0.3s;
+.hidden {
+	display: none;
 }
-#b_button:hover, #b_button.activated {
-	color: Red;
-	box-shadow: 0px 0px 2px 2px Red;
+.container {
+	width: 1024px;
+	height: 768px;
+	position: absolute;
 }
-#c_button:hover, #c_button.activated {
-	color: Gold;
-	box-shadow: 0px 0px 2px 2px Gold;
+.overlay {
+	position: absolute;
 }
-#d_button:hover, #d_button.activated {
-	color: ForestGreen;
-	box-shadow: 0px 0px 2px 2px ForestGreen;
-}
-#e_button:hover, #e_button.activated {
-	color: LightSkyBlue;
-	box-shadow: 0px 0px 2px 2px LightSkyBlue;
-}
-#f_button:hover, #f_button.activated {
-	color: CornflowerBlue;
-	box-shadow: 0px 0px 2px 2px CornflowerBlue;
-}
-#g_button:hover, #g_button.activated {
-	color: Pink;
-	box-shadow: 0px 0px 2px 2px Pink;
-}
-#h_button:hover, #h_button.activated {
-	color: RebeccaPurple;
-	box-shadow: 0px 0px 2px 2px RebeccaPurple;
-}
-.conj_button:hover, .conj_button.activated {
-	color: #37ceeb;
-	box-shadow: 0px 0px 2px 2px #37ceeb;
+#scene {
+	position: absolute;
 }
 #visualizer {
-	margin: -120px 0px;
-	display: block;
-	position: relative;
+	bottom: -120px;
+	position: absolute;
+}
+.overlay#melody {
+	width: 50px;
+	left: 10px;
+}
+.planet, .conjunction {
+	margin: 15px auto;
+	background-size: 100% auto;
+}
+.planet#b {
+	width: 96%;
+}
+.planet#c {
+	width: 94%;
+}
+.planet#d {
+	width: 68%;
+}
+.planet#e {
+	width: 81%;
+}
+.planet#f {
+	width: 92%;
+}
+.planet#g {
+	width: 100%;
+}
+.planet#h {
+	width: 67%;
+}
+.overlay#beat {
+	width: 100px;
+	right: 10px;
+}
+.conjunction {
+	width: 100%;
+}
+.imgbutton {
+	width: 100%;
+}
+.imgbutton:not(.hidden), .imgbutton:hover {
+	border-radius: 50%;
+	transition: box-shadow 0.3s ease;
+}
+#b_button, #bgrey_button:hover {
+	box-shadow: 0 0 5px 5px Red;
+}
+#c_button, #cgrey_button:hover {
+	box-shadow: 0 0 5px 5px Gold;
+}
+#d_button, #dgrey_button:hover {
+	box-shadow: 0 0 5px 5px ForestGreen;
+}
+#e_button, #egrey_button:hover {
+	box-shadow: 0 0 5px 5px LightSkyBlue;
+}
+#f_button, #fgrey_button:hover {
+	box-shadow: 0 0 5px 5px CornflowerBlue;
+}
+#g_button, #ggrey_button:hover {
+	box-shadow: 0 0 5px 5px Pink;
+}
+#h_button, #hgrey_button:hover {
+	box-shadow: 0 0 5px 5px RebeccaPurple;
+}
+#bc_button, #bcgrey_button:hover,
+#cd_button, #cdgrey_button:hover,
+#de_button, #degrey_button:hover,
+#ef_button, #efgrey_button:hover,
+#fg_button, #fggrey_button:hover,
+#gh_button, #ghgrey_button:hover {
+	box-shadow: 0 0 5px 5px #37ceeb;
 }

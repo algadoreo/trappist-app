@@ -64,9 +64,7 @@ function toggleTransit(planet, conj_obj1, conj_obj2, button_id) {
 	planet.showTransit = !planet.showTransit;
 	(!planet.show || conj_obj1.showConj || conj_obj2.showConj) ? planet.show = true : planet.show = false;
 
-	var button = document.getElementById(button_id);
-	button.classList.toggle("activated");
-	button.classList.toggle("deactivated");
+	toggleImgButton(button_id, 1);
 }
 
 function toggleConjunc(planet_num, button_id) {
@@ -88,8 +86,12 @@ function toggleConjunc(planet_num, button_id) {
 		if (!planet2.showTransit && !conj_objOut.showConj) planet2.show = false;
 	}
 
-	var button = document.getElementById(button_id);
-	button.classList.toggle("activated");
-	button.classList.toggle("deactivated");
+	toggleImgButton(button_id, 2);
 }
 
+function toggleImgButton(button_id, splice_index) {
+	var id1 = button_id;
+	var id2 = button_id.substring(0,splice_index) + 'grey' + button_id.substring(splice_index);
+	document.getElementById(id1).classList.toggle("hidden");
+	document.getElementById(id2).classList.toggle("hidden");
+}

@@ -8,31 +8,75 @@
 <body>
 	<!-- <h2>TRAPPIST app</h2> -->
 	<p>
-		<span>melody&#58;</span>
-		<!-- <input type="button" id="star_button" value="Star a" onClick="playSound(star_BUFFER)" /> -->
-		<input type="button" id="b_button" class="deactivated" value="Planet b" onClick="toggleTransit(b, {showConj: false}, conj_bc, 'b_button');" />
-		<input type="button" id="c_button" class="deactivated" value="Planet c" onClick="toggleTransit(c, conj_bc, conj_cd, 'c_button');" />
-		<input type="button" id="d_button" class="deactivated" value="Planet d" onClick="toggleTransit(d, conj_cd, conj_de, 'd_button');" />
-		<input type="button" id="e_button" class="deactivated" value="Planet e" onClick="toggleTransit(e, conj_de, conj_ef, 'e_button');" />
-		<input type="button" id="f_button" class="deactivated" value="Planet f" onClick="toggleTransit(f, conj_ef, conj_fg, 'f_button');" />
-		<input type="button" id="g_button" class="deactivated" value="Planet g" onClick="toggleTransit(g, conj_fg, conj_gh, 'g_button');" />
-		<input type="button" id="h_button" class="deactivated" value="Planet h" onClick="toggleTransit(h, conj_gh, {showConj: false}, 'h_button');" />
-	</p>
-	<p>
-		<span>beat&#58;</span>
-		<input type="button" id="bc_button" class="conj_button deactivated" value="Drums b&ndash;c" onclick="toggleConjunc(1, 'bc_button');" />
-		<input type="button" id="cd_button" class="conj_button deactivated" value="Drums c&ndash;d" onclick="toggleConjunc(2, 'cd_button');" />
-		<input type="button" id="de_button" class="conj_button deactivated" value="Drums d&ndash;e" onclick="toggleConjunc(3, 'de_button');" />
-		<input type="button" id="ef_button" class="conj_button deactivated" value="Drums e&ndash;f" onclick="toggleConjunc(4, 'ef_button');" />
-		<input type="button" id="fg_button" class="conj_button deactivated" value="Drums f&ndash;g" onclick="toggleConjunc(5, 'fg_button');" />
-		<input type="button" id="gh_button" class="conj_button deactivated" value="Drums g&ndash;h" onclick="toggleConjunc(6, 'gh_button');" />
-	</p>
-	<p>
 		<span>volume&#58; <input id="volume" type="range" min="0" max="1" step="0.01" value="0.2" onchange="updateGain(value)" /></span>
 		<span>speed&#58; <input id="speed" type="range" min="0.3" max="0.7" step="0.1" value="0.7" onchange="updateSpeed([star,b,c,d,e,f,g,h], value)" /></span>
 	</p>
-	<canvas id="scene"></canvas>
-	<canvas id="visualizer"></canvas>
+
+	<div class="container">
+		<canvas id="scene"></canvas>
+		<canvas id="visualizer"></canvas>
+
+		<!-- HUD overlay -->
+		<div class="overlay" id="melody">
+			<span>melody</span>
+			<div class="planet" id="b">
+				<input type="image" src="images/bgrey.png" class="imgbutton" id="bgrey_button" onClick="toggleTransit(b, {showConj: false}, conj_bc, 'b_button');" />
+				<input type="image" src="images/b.png" class="imgbutton hidden" id="b_button" onClick="toggleTransit(b, {showConj: false}, conj_bc, 'b_button');" />
+			</div>
+			<div class="planet" id="c">
+				<input type="image" src="images/cgrey.png" class="imgbutton" id="cgrey_button" onClick="toggleTransit(c, conj_bc, conj_cd, 'c_button');" />
+				<input type="image" src="images/c.png" class="imgbutton hidden" id="c_button" onClick="toggleTransit(c, conj_bc, conj_cd, 'c_button');" />
+			</div>
+			<div class="planet" id="d">
+				<input type="image" src="images/dgrey.png" class="imgbutton" id="dgrey_button" onClick="toggleTransit(d, conj_cd, conj_de, 'd_button');" />
+				<input type="image" src="images/d.png" class="imgbutton hidden" id="d_button" onClick="toggleTransit(d, conj_cd, conj_de, 'd_button');" />
+			</div>
+			<div class="planet" id="e">
+				<input type="image" src="images/egrey.png" class="imgbutton" id="egrey_button" onClick="toggleTransit(e, conj_de, conj_ef, 'e_button');" />
+				<input type="image" src="images/e.png" class="imgbutton hidden" id="e_button" onClick="toggleTransit(e, conj_de, conj_ef, 'e_button');" />
+			</div>
+			<div class="planet" id="f">
+				<input type="image" src="images/fgrey.png" class="imgbutton" id="fgrey_button" onClick="toggleTransit(f, conj_ef, conj_fg, 'f_button');" />
+				<input type="image" src="images/f.png" class="imgbutton hidden" id="f_button" onClick="toggleTransit(f, conj_ef, conj_fg, 'f_button');" />
+			</div>
+			<div class="planet" id="g">
+				<input type="image" src="images/ggrey.png" class="imgbutton" id="ggrey_button" onClick="toggleTransit(g, conj_fg, conj_gh, 'g_button');" />
+				<input type="image" src="images/g.png" class="imgbutton hidden" id="g_button" onClick="toggleTransit(g, conj_fg, conj_gh, 'g_button');" />
+			</div>
+			<div class="planet" id="h">
+				<input type="image" src="images/hgrey.png" class="imgbutton" id="hgrey_button" onClick="toggleTransit(h, conj_gh, {showConj: false}, 'h_button');" />
+				<input type="image" src="images/h.png" class="imgbutton hidden" id="h_button" onClick="toggleTransit(h, conj_gh, {showConj: false}, 'h_button');" />
+			</div>
+		</div>
+
+		<div class="overlay" id="beat">
+			<span>beat</span>
+			<div class="conjunction" id="bc">
+				<input type="image" src="images/bcgrey.png" class="imgbutton" id="bcgrey_button" onclick="toggleConjunc(1, 'bc_button');" />
+				<input type="image" src="images/bc.png" class="imgbutton hidden" id="bc_button" onclick="toggleConjunc(1, 'bc_button');" />
+			</div>
+			<div class="conjunction" id="cd">
+				<input type="image" src="images/cdgrey.png" class="imgbutton" id="cdgrey_button" onclick="toggleConjunc(2, 'cd_button');" />
+				<input type="image" src="images/cd.png" class="imgbutton hidden" id="cd_button" onclick="toggleConjunc(2, 'cd_button');" />
+			</div>
+			<div class="conjunction" id="de">
+				<input type="image" src="images/degrey.png" class="imgbutton" id="degrey_button" onclick="toggleConjunc(3, 'de_button');" />
+				<input type="image" src="images/de.png" class="imgbutton hidden" id="de_button" onclick="toggleConjunc(3, 'de_button');" />
+			</div>
+			<div class="conjunction" id="ef">
+				<input type="image" src="images/efgrey.png" class="imgbutton" id="efgrey_button" onclick="toggleConjunc(4, 'ef_button');" />
+				<input type="image" src="images/ef.png" class="imgbutton hidden" id="ef_button" onclick="toggleConjunc(4, 'ef_button');" />
+			</div>
+			<div class="conjunction" id="fg">
+				<input type="image" src="images/fggrey.png" class="imgbutton" id="fggrey_button" onclick="toggleConjunc(5, 'fg_button');" />
+				<input type="image" src="images/fg.png" class="imgbutton hidden" id="fg_button" onclick="toggleConjunc(5, 'fg_button');" />
+			</div>
+			<div class="conjunction" id="gh">
+				<input type="image" src="images/ghgrey.png" class="imgbutton" id="ghgrey_button" onclick="toggleConjunc(6, 'gh_button');" />
+				<input type="image" src="images/gh.png" class="imgbutton hidden" id="gh_button" onclick="toggleConjunc(6, 'gh_button');" />
+			</div>
+		</div>
+	</div>
 
 <!-- Javascript files -->
 <script type="text/javascript" src="js/audio.js"></script>
