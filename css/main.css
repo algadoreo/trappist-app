@@ -36,7 +36,8 @@ input[type="range"] {
 	text-align: center;
 }
 .overlay#melody {
-	width: 50px;
+	width: 100px;
+	height: 100%;
 	left: 10px;
 }
 .planet, .conjunction {
@@ -106,4 +107,23 @@ input[type="range"] {
 #fg_button, #fggrey_button:hover,
 #gh_button, #ghgrey_button:hover {
 	box-shadow: 0 0 5px 5px #37ceeb;
+}
+.buttons {
+	width: 50%;
+	position: absolute;
+}
+.volume_meter {
+	width: 50%;
+	right: 0;
+	top: 30%;
+	transform: translateY(-50%);
+	position: absolute;
+}
+#volume {
+	-webkit-appearance: slider-vertical;
+	data-orientation="vertical";
+	width: 100%;
+	height: 100%;
+	margin: 0px auto;
+	background-color: transparent;
 }
