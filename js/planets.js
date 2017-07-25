@@ -50,4 +50,7 @@ function updateSpeed(planet_arr, bpm) {
 	conj_ef.dfreq = e.freq - f.freq;
 	conj_fg.dfreq = f.freq - g.freq;
 	conj_gh.dfreq = g.freq - h.freq;
+
+	// Update the bpm meter
+	document.getElementById("bpm_meter").textContent = bpm.toString() + " bpm";
 }

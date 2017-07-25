@@ -31,6 +31,10 @@ input[type="range"] {
 	bottom: -120px;
 	position: absolute;
 }
+.overlay#tempo_display {
+	width: 100%;
+	text-align: center;
+}
 .overlay#melody {
 	width: 50px;
 	left: 10px;

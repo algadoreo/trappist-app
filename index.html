@@ -9,7 +9,6 @@
 	<!-- <h2>TRAPPIST app</h2> -->
 	<p>
 		<span>volume&#58; <input id="volume" type="range" min="0" max="1" step="0.01" value="0.2" onchange="updateGain(value)" /></span>
-		<span>tempo&#58; <input id="tempo" type="range" min="18" max="40" step="1" value="30" onchange="updateSpeed([star,b,c,d,e,f,g,h], value)" /></span>
 	</p>
 
 	<div class="container">
@@ -17,6 +16,10 @@
 		<canvas id="visualizer"></canvas>
 
 		<!-- HUD overlay -->
+		<div class="overlay" id="tempo_display">
+			<input id="tempo" type="range" min="18" max="100" step="1" value="30" onchange="updateSpeed([star,b,c,d,e,f,g,h], value)" />
+			<span id="bpm_meter">30 bpm</span>
+		</div>
 		<div class="overlay" id="melody">
 			<span>melody</span>
 			<div class="planet" id="b">
