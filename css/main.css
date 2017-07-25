@@ -42,7 +42,6 @@ input[type="range"] {
 }
 .planet, .conjunction {
 	margin: 15px auto;
-	background-size: 100% auto;
 }
 .planet#b {
 	width: 96%;
