@@ -4,6 +4,7 @@
 	<meta charset="UTF-8">
 	<title>TRAPPIST app </title>
 	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans">
 </head>
 <body>
 	<!-- <h2>TRAPPIST app</h2> -->
@@ -17,7 +18,7 @@
 			<span id="bpm_meter">30 bpm</span>
 		</div>
 		<div class="overlay" id="melody">
-			<span>melody</span>
+			<div class="heading" id="melody_heading">melody</div>
 			<div class="buttons">
 				<div class="planet" id="b">
 					<input type="image" src="images/bgrey.png" class="imgbutton" id="bgrey_button" onClick="toggleTransit(b, {showConj: false}, conj_bc, 'b_button');" />
@@ -55,7 +56,7 @@
 		</div>
 
 		<div class="overlay" id="beat">
-			<span>beat</span>
+			<div class="heading" id="beat_heading">beat</div>
 			<div class="conjunction" id="bc">
 				<input type="image" src="images/bcgrey.png" class="imgbutton" id="bcgrey_button" onclick="toggleConjunc(1, 'bc_button');" />
 				<input type="image" src="images/bc.png" class="imgbutton hidden" id="bc_button" onclick="toggleConjunc(1, 'bc_button');" />
