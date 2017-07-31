@@ -53,7 +53,8 @@ BufferLoader.prototype.load = function() {
 //////////////////////////////////////////////////
 // Main section
 var audioContext;
-var masterGain;
+var gain_melody;
+var gain_beat;
 var analyser;
 var time_arr;
 var bufferLoader;
@@ -81,10 +82,15 @@ analyser = audioContext.createAnalyser();
 analyser.fftSize = 1024;
 time_arr = new Uint8Array(analyser.frequencyBinCount);
 
-masterGain = audioContext.createGain();
-masterGain.gain.value = 0.2;
-masterGain.connect(audioContext.destination);
-masterGain.connect(analyser);
+gain_melody = audioContext.createGain();
+gain_melody.gain.value = 0.2;
+gain_melody.connect(audioContext.destination);
+gain_melody.connect(analyser);
+
+gain_beat = audioContext.createGain();
+gain_beat.gain.value = 0.2;
+gain_beat.connect(audioContext.destination);
+gain_beat.connect(analyser);
 
 bufferLoader = new BufferLoader(
 	audioContext,
@@ -123,13 +129,13 @@ bufferLoader = new BufferLoader(
 bufferLoader.load();
 
 
-function playSound(buffer) {
+function playSound(buffer, gainNode) {
 	var source = audioContext.createBufferSource();
 	source.buffer = buffer;
-	source.connect(masterGain);
+	source.connect(gainNode);
 	source.start(0);
 }
 
-function updateGain(value) {
-	masterGain.gain.value = value;
+function updateGain(value, gainNode) {
+	gainNode.gain.value = value;
 }

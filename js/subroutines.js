@@ -14,7 +14,7 @@ function updatePlanet(planet) {
 	if (planet.theta >= 2*Math.PI) {
 		planet.theta -= 2*Math.PI;
 		if (planet.showTransit) {
-			playSound(planet.buffer);
+			playSound(planet.buffer, gain_melody);
 			drawPlanetBlip(planet);
 		}
 	}
@@ -46,7 +46,7 @@ function checkConjunction(planet1, planet2, conj_obj) {
 	if (conj_obj.dtheta <= 0) {
 		conj_obj.dtheta += 2*Math.PI;
 		if (conj_obj.showConj) {
-			playSound(conj_obj.conjBuffer);
+			playSound(conj_obj.conjBuffer, gain_beat);
 			drawConjunction(planet1);
 		}
 	}
