@@ -70,6 +70,7 @@ input[type="range"] {
 }
 .overlay#beat {
 	width: 100px;
+	height: 100%;
 	right: 10px;
 }
 .conjunction {
@@ -115,18 +116,21 @@ input[type="range"] {
 	width: 50%;
 	position: absolute;
 }
+.overlay#beat .buttons {
+	width: 100%;
+}
 .volume_meter {
-	width: 50%;
-	right: 0;
-	top: 30%;
-	transform: translateY(-50%);
+	width: 300%;
+	height: 20%;
+	bottom: 0%;
 	position: absolute;
 }
-#volume {
-	-webkit-appearance: slider-vertical;
-	data-orientation="vertical";
-	width: 100%;
-	height: 100%;
-	margin: 0px auto;
-	background-color: transparent;
+.volume_meter#vol1 {
+	left: 0;
+	text-align: left;
+}
+.volume_meter#vol2 {
+	right: 0;
+	text-align: right;
+	direction: rtl;
 }
