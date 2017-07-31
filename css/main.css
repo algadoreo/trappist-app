@@ -11,6 +11,8 @@ h1,h2,h3,h4,h5,h6 {
 .heading {
 	font-size: 20pt;
 	text-align: center;
+	padding-top: 50%;
+	margin: 10% 0;
 }
 input[type="range"] {
 	-webkit-appearance: none;
@@ -40,9 +42,10 @@ input[type="range"] {
 	text-align: center;
 }
 .overlay#melody {
-	width: 100px;
+	width: 10%;
+	max-width: 100px;
 	height: 100%;
-	left: 10px;
+	left: 2%;
 }
 .planet, .conjunction {
 	margin: 15px auto;
@@ -69,9 +72,10 @@ input[type="range"] {
 	width: 67%;
 }
 .overlay#beat {
-	width: 100px;
+	width: 10%;
+	max-width: 100px;
 	height: 100%;
-	right: 10px;
+	right: 2%;
 }
 .conjunction {
 	width: 100%;
