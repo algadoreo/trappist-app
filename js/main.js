@@ -18,8 +18,8 @@ if (!window.requestAnimationFrame) {
 // Canvas settings
 var canvas = document.getElementById('scene');
 var drawContext = canvas.getContext('2d');
-const WIDTH = 1024;
-const HEIGHT = 768;
+const WIDTH = 1280;
+const HEIGHT = 800;
 canvas.width = WIDTH;
 canvas.height = HEIGHT;
 

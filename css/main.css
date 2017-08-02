@@ -23,8 +23,8 @@ input[type="range"] {
 	display: none;
 }
 .container {
-	width: 1024px;
-	height: 768px;
+	width: 1280px;
+	height: 800px;
 	position: absolute;
 }
 .overlay {
