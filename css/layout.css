@@ -1,33 +1,8 @@
-/* main.css */
+/* layout.css */
 
-body {
-	background-color: black;
-	font-family: "Nunito Sans", sans-serif;
-	color: white;
-}
-h1,h2,h3,h4,h5,h6 {
-	color: white;
-}
-.heading {
-	font-size: 20pt;
-	text-align: center;
-	padding-top: 50%;
-	margin: 10% 0;
-}
-input[type="range"] {
-	-webkit-appearance: none;
-	background-color: #333333;
-	height: 2px;
-}
-.hidden {
-	display: none;
-}
 .container {
 	width: 1280px;
 	height: 800px;
-	position: absolute;
-}
-.overlay {
 	position: absolute;
 }
 #scene {
@@ -35,6 +10,9 @@ input[type="range"] {
 }
 #visualizer {
 	bottom: -120px;
+	position: absolute;
+}
+.overlay {
 	position: absolute;
 }
 .overlay#tempo_display {
