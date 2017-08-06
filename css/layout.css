@@ -1,15 +1,16 @@
 /* layout.css */
 
 .container {
-	width: 1280px;
-	height: 800px;
+	width: 100%;
+	padding-bottom: 56.25%;
 	position: absolute;
 }
 #scene {
 	position: absolute;
 }
 #visualizer {
-	bottom: -120px;
+	height: 18.75%;
+	bottom: -9.375%;
 	position: absolute;
 }
 .overlay {
@@ -112,7 +113,7 @@
 	width: 100%;
 }
 .volume_meter {
-	width: 300%;
+	width: 320px;
 	height: 20%;
 	bottom: 0%;
 	position: absolute;

@@ -19,7 +19,7 @@ if (!window.requestAnimationFrame) {
 var canvas = document.getElementById('scene');
 var drawContext = canvas.getContext('2d');
 const WIDTH = 1280;
-const HEIGHT = 800;
+const HEIGHT = 720;
 canvas.width = WIDTH;
 canvas.height = HEIGHT;
 

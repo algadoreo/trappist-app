@@ -1,0 +1,27 @@
+
+@media (max-width: 1279px) {
+	.heading {
+		font-size: 16pt;
+		text-align: center;
+		padding-top: 0;
+	}
+}
+@media (max-width: 1099px) {
+	.heading {
+		margin: 10% 0;
+	}
+	.planet{
+		margin: 15% auto;
+	}
+	.conjunction {
+		margin: 10% auto;
+	}
+}
+@media (max-width: 800px) {
+	.volume_meter {
+		height: 15%;
+	}
+	.volume_meter p {
+		margin: 0;
+	}
+}
