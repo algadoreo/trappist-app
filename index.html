@@ -16,7 +16,7 @@
 		<!-- HUD overlay -->
 		<div class="overlay" id="tempo_display">
 			<span id="tempo_heading">TEMPO</span>
-			<input id="tempo" type="range" min="1" max="100" step="1" value="30" onchange="updateSpeed([star,b,c,d,e,f,g,h], value)" />
+			<input id="tempo" type="range" min="1" max="100" step="1" value="30" oninput="updateSpeed([star,b,c,d,e,f,g,h], value)" />
 			<span id="bpm_meter">30</span>
 		</div>
 		<div class="overlay" id="melody">
@@ -54,7 +54,7 @@
 			<!-- Volume meter -->
 			<div class="volume_meter" id="vol1">
 				<p>VOLUME <span id="vol1_meter">20</span></p>
-				<p><input id="volume" type="range" min="0" max="1" step="0.01" value="0.2" onchange="updateGain(value, gain_melody); updateGainMeter(value,'vol1_meter');" /></p>
+				<p><input id="volume" type="range" min="0" max="1" step="0.01" value="0.2" oninput="updateGain(value, gain_melody); updateGainMeter(value,'vol1_meter');" /></p>
 			</div>
 		</div>
 
@@ -89,7 +89,7 @@
 			<!-- Volume meter -->
 			<div class="volume_meter" id="vol2">
 				<p>VOLUME <span id="vol2_meter">20</span></p>
-				<p><input id="volume" type="range" min="0" max="1" step="0.01" value="0.2" onchange="updateGain(value, gain_beat); updateGainMeter(value,'vol2_meter');" /></p>
+				<p><input id="volume" type="range" min="0" max="1" step="0.01" value="0.2" oninput="updateGain(value, gain_beat); updateGainMeter(value,'vol2_meter');" /></p>
 			</div>
 		</div>
 	</div>
