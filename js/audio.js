@@ -139,3 +139,7 @@ function playSound(buffer, gainNode) {
 function updateGain(value, gainNode) {
 	gainNode.gain.value = value;
 }
+
+function updateGainMeter(value, gainMeter) {
+	document.getElementById(gainMeter).textContent = Math.round(value*100).toString();
+}

@@ -53,8 +53,8 @@
 			</div>
 			<!-- Volume meter -->
 			<div class="volume_meter" id="vol1">
-				<p>VOLUME</p>
-				<p>0 <input id="volume" type="range" min="0" max="1" step="0.01" value="0.2" onchange="updateGain(value, gain_melody)" /> 100</p>
+				<p>VOLUME <span id="vol1_meter">20</span></p>
+				<p><input id="volume" type="range" min="0" max="1" step="0.01" value="0.2" onchange="updateGain(value, gain_melody); updateGainMeter(value,'vol1_meter');" /></p>
 			</div>
 		</div>
 
@@ -88,8 +88,8 @@
 			</div>
 			<!-- Volume meter -->
 			<div class="volume_meter" id="vol2">
-				<p>VOLUME</p>
-				<p>0 <input id="volume" type="range" min="0" max="1" step="0.01" value="0.2" onchange="updateGain(value, gain_beat)" /> 100</p>
+				<p>VOLUME <span id="vol2_meter">20</span></p>
+				<p><input id="volume" type="range" min="0" max="1" step="0.01" value="0.2" onchange="updateGain(value, gain_beat); updateGainMeter(value,'vol2_meter');" /></p>
 			</div>
 		</div>
 	</div>

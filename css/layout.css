@@ -118,14 +118,18 @@
 	bottom: 0%;
 	position: absolute;
 }
-.volume_meter#vol1 {
+#vol1 {
 	left: 0;
 	text-align: left;
 }
-.volume_meter#vol2 {
+#vol2 {
 	right: 0;
 	text-align: right;
-	direction: rtl;
+}
+#vol1_meter, #vol2_meter {
+	width: 60px;
+	text-align: right;
+	display: inline-block;
 }
 
 .footer {
